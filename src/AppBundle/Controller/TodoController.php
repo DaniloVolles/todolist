@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class TodoController extends Controller
 {
     /**
-     * @Route("/home", name="todo_list")
+     * @Route("/", name="todo_list")
      */
     public function listAction(){
         $todos = $this->getDoctrine()
@@ -53,7 +53,7 @@ class TodoController extends Controller
             $priority = $form['priority']->getData();
             $due_date = $form['due_date']->getData();
 
-            $now = new\DateTime('now');
+            $now = new \DateTime('now');
 
             $todo->setName($name);
             $todo->setCategory($category);
@@ -88,7 +88,7 @@ class TodoController extends Controller
             ->getRepository('AppBundle:Todo')
             ->find($id);
 
-            $now = new\DateTime('now');
+            $now = new \DateTime('now');
 
             $todo->setName($todo->getName());
             $todo->setCategory($todo->getCategory());
@@ -116,7 +116,7 @@ class TodoController extends Controller
                 $priority = $form['priority']->getData();
                 $due_date = $form['due_date']->getData();
     
-                $now = new\DateTime('now');
+                $now = new \DateTime('now');
                 $em = $this->getDoctrine()->getManager();
                 $todo = $em->getRepository('AppBundle:Todo')->find($id);
 
